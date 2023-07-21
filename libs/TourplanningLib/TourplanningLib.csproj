@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30428</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F4AE3B1A-CDAC-4312-AD8E-0C15A17DAF4B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Logicx.Optimization.Tourplanning</RootNamespace>
+    <AssemblyName>TourplanningLib</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Acs\Acs.cs" />
+    <Compile Include="Acs\TspAcs.cs" />
+    <Compile Include="Acs\VrpAcs.cs" />
+    <Compile Include="App\TourplanningConfig.cs" />
+    <Compile Include="BruteForce\BruteForceSearch.cs" />
+    <Compile Include="Evolution\TspBruteForceNoCrossingLines.cs" />
+    <Compile Include="NearestNeighbour\FastNearestNeighbourSearch.cs" />
+    <Compile Include="NearestNeighbour\VrpBacktrackedFastNearestNeighbourSearch.cs" />
+    <Compile Include="NearestNeighbour\NoptFnns.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StateSpaceInfo\CostMatrix.cs" />
+    <Compile Include="StateSpaceInfo\DecentralizationIndex.cs" />
+    <Compile Include="StateSpaceInfo\TimeCongruencyMatrix.cs" />
+    <Compile Include="StateSpaceLogic\TSP\TspAction.cs" />
+    <Compile Include="StateSpaceLogic\TSP\TspState.cs" />
+    <Compile Include="StateSpaceLogic\TSP\TspStateSpace.cs" />
+    <Compile Include="StateSpaceLogic\VRP\Request.cs" />
+    <Compile Include="StateSpaceLogic\VRP\Vehicle.cs" />
+    <Compile Include="StateSpaceLogic\VRP\VrpAction.cs" />
+    <Compile Include="StateSpaceLogic\VRP\VrpRequestAction.cs" />
+    <Compile Include="StateSpaceLogic\VRP\VrpState.cs" />
+    <Compile Include="StateSpaceLogic\VRP\VrpStateSpace.cs" />
+    <Compile Include="StateSpaceLogic\VRP\VrpStopAction.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\..\30-Utilities\5-Impl\c#\Libs\GeoLib\GeoLib.csproj">
+      <Project>{49A9EB7F-D1B5-4EF3-94BC-6C32DE8FD3D1}</Project>
+      <Name>GeoLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\..\30-Utilities\5-Impl\c#\Libs\MathLib\MathLib.csproj">
+      <Project>{47B978A6-BC08-4BDA-9C92-69ACF19773B6}</Project>
+      <Name>MathLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\..\30-Utilities\5-Impl\c#\Libs\UtilityLib\UtilityLib.csproj">
+      <Project>{2A6D55D1-6B49-4B65-9CD8-46C6760313E6}</Project>
+      <Name>UtilityLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\..\90-GIS\5-Impl\c#\Libs\RouteplanningLib\RouteplanningLib.csproj">
+      <Project>{C4BA189E-96A7-44E3-802F-C2226BECF149}</Project>
+      <Name>RouteplanningLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GenericStateSpaceLib\GenericStateSpaceLib.csproj">
+      <Project>{2DD77089-C63A-4D50-93C3-A1CEF79705AF}</Project>
+      <Name>GenericStateSpaceLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MetaHeuristicsLib\MetaHeuristicsLib.csproj">
+      <Project>{670F0F7A-1AF5-41D2-8488-60CE2E5F75F8}</Project>
+      <Name>MetaHeuristicsLib</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App\Config\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
